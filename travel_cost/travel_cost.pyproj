@@ -37,6 +37,13 @@
     <Compile Include="app\views.py" />
     <Compile Include="app\__init__.py" />
     <Compile Include="app\migrations\__init__.py" />
+    <Compile Include="f_test\admin.py" />
+    <Compile Include="f_test\apps.py" />
+    <Compile Include="f_test\migrations\__init__.py" />
+    <Compile Include="f_test\models.py" />
+    <Compile Include="f_test\tests.py" />
+    <Compile Include="f_test\views.py" />
+    <Compile Include="f_test\__init__.py" />
     <Compile Include="manage.py" />
     <Compile Include="travel_cost\__init__.py" />
     <Compile Include="travel_cost\settings.py" />
@@ -53,9 +60,13 @@
     <Folder Include="app\static\app\scripts\" />
     <Folder Include="app\templates\" />
     <Folder Include="app\templates\app\" />
+    <Folder Include="f_test\" />
+    <Folder Include="f_test\migrations\" />
+    <Folder Include="f_test\templates\" />
     <Folder Include="travel_cost\" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="f_test\templates\index.html" />
     <Content Include="requirements.txt" />
     <Content Include="db.sqlite3" />
     <Content Include="app\static\app\content\bootstrap.css" />
