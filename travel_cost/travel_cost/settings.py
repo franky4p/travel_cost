@@ -43,6 +43,8 @@ INSTALLED_APPS = [
     'f_test',
 ]
 
+#в версии 2.0 изменили на MIDDLEWARE
+
 #MIDDLEWARE_CLASSES = [
 #    'django.middleware.security.SecurityMiddleware',
 #    'django.contrib.sessions.middleware.SessionMiddleware',

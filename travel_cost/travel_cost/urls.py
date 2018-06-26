@@ -13,24 +13,22 @@ import app.views
 import f_test.views
 
 # Uncomment the next lines to enable the admin:
- #from django.conf.urls import include
- #from django.contrib import admin
- #admin.autodiscover()
+from django.conf.urls import include
+from django.contrib import admin
+admin.autodiscover()
 
 urlpatterns = [
 
     #учусь
     url(r'^hiDjango$', f_test.views.index, name='index'),
-    #url(r'^home$', f_test.views.index, name='home'),
 
     # Examples:
-     url(r'^$', app.views.home, name='home'),
-     url(r'^contact$', app.views.contact, name='contact'),
-     url(r'^about', app.views.about, name='about'),
+    url(r'^$', app.views.home, name='home'),
+    url(r'^contact$', app.views.contact, name='contact'),
+    url(r'^about', app.views.about, name='about'),
     url(r'^login/$', django.contrib.auth.views.login,
         {
-            'template_name': 'app/login.html',
-            'authentication_form': app.forms.BootstrapAuthenticationForm,
+            'template_name': 'app/login.html', 'authentication_form': app.forms.BootstrapAuthenticationForm,
             'extra_context':
             {
                 'title': 'Log in',
@@ -48,5 +46,5 @@ urlpatterns = [
     #url(r'^admin/doc/', include('django.contrib.admindocs.urls')),
 
     # Uncomment the next line to enable the admin:
-    #url(r'^admin/', include(admin.site.urls)),
+    url(r'^admin/', include(admin.site.urls)),
 ]
