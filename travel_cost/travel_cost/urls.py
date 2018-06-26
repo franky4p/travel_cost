@@ -3,7 +3,7 @@ Definition of urls for travel_cost.
 """
 
 from datetime import datetime
-from django.conf.urls import url
+from django.urls import path
 import django.contrib.auth.views
 
 import app.forms
@@ -20,14 +20,14 @@ import f_test.views
 urlpatterns = [
 
     #учусь
-    url(r'^hiDjango$', f_test.views.index, name='index'),
+    path('hiDjango', f_test.views.index, name='index'),
     #url(r'^home$', f_test.views.index, name='home'),
 
     # Examples:
-     url(r'^$', app.views.home, name='home'),
-     url(r'^contact$', app.views.contact, name='contact'),
-     url(r'^about', app.views.about, name='about'),
-    url(r'^login/$', django.contrib.auth.views.login,
+     path('', app.views.home, name='home'),
+     path('contact', app.views.contact, name='contact'),
+     path('about', app.views.about, name='about'),
+    path('login/', django.contrib.auth.views.login,
         {
             'template_name': 'app/login.html',
             'authentication_form': app.forms.BootstrapAuthenticationForm,
@@ -38,7 +38,7 @@ urlpatterns = [
             }
         },
         name='login'),
-    url(r'^logout$', django.contrib.auth.views.logout,
+    path('logout', django.contrib.auth.views.logout,
         {
             'next_page': '/',
         },
