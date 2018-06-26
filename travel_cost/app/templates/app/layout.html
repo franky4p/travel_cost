@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{{ title }} - My Django Application</title>
+    <title>{{ title }} - travel cost</title>
     {% load staticfiles %}
     <link rel="stylesheet" type="text/css" href="{% static 'app/content/bootstrap.min.css' %}" />
     <link rel="stylesheet" type="text/css" href="{% static 'app/content/site.css' %}" />
@@ -20,14 +20,14 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a href="/" class="navbar-brand">Application name</a>
+                <!-- <a href="/" class="navbar-brand">Application name</a> -->
             </div>
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
-                    <li><a href="{% url 'home' %}">Home</a></li>
-                    <li><a href="{% url 'about' %}">About</a></li>
-                    <li><a href="{% url 'contact' %}">Contact</a></li>
-                    <li><a href="{% url 'index' %}">Hi</a></li>
+                    <li><a href="{% url 'home' %}">Главная</a></li>
+                    <li><a href="{% url 'index' %}">То что нужно</a></li>
+                    <li><a href="{% url 'about' %}">О сайте</a></li>
+                    <li><a href="{% url 'contact' %}">Контакты</a></li>    
                 </ul>
                 {% include 'app/loginpartial.html' %}
             </div>

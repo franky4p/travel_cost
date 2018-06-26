@@ -4,8 +4,7 @@ from datetime import datetime
 
 def index(request):
     now = datetime.now()
-    var_dict = {"title": "Hello Django", 
-                "message": "again Hello", 
-                "content": " on " + now.strftime("%A, %d %B, %Y at %X")}
+    var_dict = {"title": "Find",  
+                'year': datetime.now().year,}
     
     return render(request, "index.html", var_dict)

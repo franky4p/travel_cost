@@ -1,51 +1,63 @@
-<<!DOCTYPE html>
-<html>
-<head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{{ title }} - ��� �������� ������</title>
-    {% load staticfiles %}
-    <link rel="stylesheet" type="text/css" href="{% static 'app/content/bootstrap.min.css' %}" />
-    <link rel="stylesheet" type="text/css" href="{% static 'app/content/site.css' %}" />
-    <script src="{% static 'app/scripts/modernizr-2.6.2.js' %}"></script>
-</head>
+﻿{% extends "app/layout.html" %}
+   
+{% block content %}
+         <div class="row">
+                
+                <div class="col-md-8 order-md-1">
+                  <h4 class="mb-3">Куда едем?</h4>                                  
 
-<body>
-    <div class="navbar navbar-inverse navbar-fixed-top">
-        <div class="container">
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                <a href="/" class="navbar-brand">Application name</a>
+                    <div class="row">
+                      <div class="col-md-5 mb-3">
+                        <label for="country">Страна</label>
+                        <select class="custom-select d-block w-100" id="country" required>
+                          <option value="">Choose...</option>
+                          <option>Russia</option>
+                        </select>
+                        <div class="invalid-feedback">
+                          Выберите страну.
+                        </div>
+                      </div>
+                      <div class="col-md-4 mb-3">
+                        <label for="city">Город</label>
+                        <select class="custom-select d-block w-100" id="city" required>
+                          <option value="">Choose...</option>
+                          <option>Moscow</option>
+                        </select>
+                        <div class="invalid-feedback">
+                          Выберите город.
+                        </div>
+                      </div>
+                      
+                    </div>
+                    <hr class="mb-4">
+                    
+                    <div class="custom-control custom-checkbox">
+                      <input type="checkbox" class="custom-control-input" id="save-info">
+                      <label class="custom-control-label" for="save-info">Сохранить критерии поиска</label>
+                    </div>
+                    <hr class="mb-4">
+
+                    <h4 class="mb-3">Диапазон цен</h4>
+
+                    <div class="d-block my-3">
+                      <div class="custom-control custom-radio">
+                        <input id="high" name="rangeMethod" type="radio" class="custom-control-input" checked="" required="">
+                        <label class="custom-control-label" for="high">Дорого богато</label>
+                      </div>
+                      <div class="custom-control custom-radio">
+                        <input id="low" name="rangeMethod" type="radio" class="custom-control-input" required="">
+                        <label class="custom-control-label" for="low">Лишь бы не на улице</label>
+                      </div>
+                      <div class="custom-control custom-radio">
+                        <input id="medium" name="rangeMethod" type="radio" class="custom-control-input" required="">
+                        <label class="custom-control-label" for="medium">Как все</label>
+                      </div>
+                    </div>
+                                
+                    <hr class="mb-4">
+                    <button class="btn btn-primary btn-lg btn-block" type="submit">Искать</button>
+                 
+                </div>
             </div>
-            <div class="navbar-collapse collapse">
-                <ul class="nav navbar-nav">
-                    <li><a href="{% url 'home' %}">Home</a></li>
-                    <li><a href="{% url 'about' %}">About</a></li>
-                    <li><a href="{% url 'contact' %}">Contact</a></li>
-                    <li><a href="{% url 'index' %}">Hi</a></li>
-                </ul>
-                {% include 'app/loginpartial.html' %}
-            </div>
-        </div>
-    </div>
-
-    <div class="container body-content">
-{% block content %}{% endblock %}
-        <hr/>
-        <footer>
-            <p>&copy; {{ year }} - ��� �������� ������</p>
-        </footer>
-    </div>
-
-    <script src="{% static 'app/scripts/jquery-1.10.2.js' %}"></script>
-    <script src="{% static 'app/scripts/bootstrap.js' %}"></script>
-    <script src="{% static 'app/scripts/respond.js' %}"></script>
-{% block scripts %}{% endblock %}
-
-</body>
-</html>
+{% endblock %}
+   
