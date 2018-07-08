@@ -260,3 +260,5 @@ paket-files/
 __pycache__/
 *.pyc
 /travel_cost/env
+
+ток.txt
