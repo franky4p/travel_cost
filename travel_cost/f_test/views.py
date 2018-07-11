@@ -15,10 +15,13 @@ def index(request):
         form = NameForm(request.POST)
 
         if form.is_valid():
-            print(form.cleaned_data["city"])
-         
+            ch_field = form.cleaned_data["choice_field"]
+
         #now = datetime.now()
-        hotels = ut.get_hotel()
+        
+        hotels = ut.get_hotel(ch_field)
+       
+
         dict_hotel = {hotels.index(a)+1:a for a in hotels}
 
         var_dict = {"title": "Find",  
