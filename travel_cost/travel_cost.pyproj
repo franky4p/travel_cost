@@ -34,11 +34,13 @@
     <Compile Include="app\forms.py" />
     <Compile Include="app\models.py" />
     <Compile Include="app\tests.py" />
+    <Compile Include="app\utils.py" />
     <Compile Include="app\views.py" />
     <Compile Include="app\__init__.py" />
     <Compile Include="app\migrations\__init__.py" />
     <Compile Include="f_test\admin.py" />
     <Compile Include="f_test\apps.py" />
+    <Compile Include="f_test\forms.py" />
     <Compile Include="f_test\migrations\__init__.py" />
     <Compile Include="f_test\models.py" />
     <Compile Include="f_test\tests.py" />

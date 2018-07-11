@@ -22,7 +22,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = '810e4fca-9636-43fa-8d1f-2621947d17c1'
-
+GOOGLE_API = "AIzaSyA-SBdE5Qx0VzTHt1TICGb3mJ7kMm1xIRE"
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
@@ -42,19 +42,6 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'f_test',
 ]
-
-#в версии 2.0 изменили на MIDDLEWARE
-
-#MIDDLEWARE_CLASSES = [
-#    'django.middleware.security.SecurityMiddleware',
-#    'django.contrib.sessions.middleware.SessionMiddleware',
-#    'django.middleware.common.CommonMiddleware',
-#    'django.middleware.csrf.CsrfViewMiddleware',
-#    'django.contrib.auth.middleware.AuthenticationMiddleware',
-#    'django.contrib.auth.middleware.SessionAuthenticationMiddleware',
-#    'django.contrib.messages.middleware.MessageMiddleware',
-#    'django.middleware.clickjacking.XFrameOptionsMiddleware',
-#]
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
