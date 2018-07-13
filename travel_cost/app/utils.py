@@ -2,17 +2,16 @@ import googlemaps
 from datetime import datetime
 from django.conf import settings
 
-def get_hotel(type_s):
+def get_info(type_s, addres):
     gmaps = googlemaps.Client(key=settings.GOOGLE_API)
 
     # Geocoding an address
-    addres = "Москва"
-    geocode_result = gmaps.geocode(addres)
+    if addres:
+        geocode_result = gmaps.geocode(addres)
+    else:
+        geocode_result = gmaps.geocode("Москва")
+    
     location = geocode_result[0]['geometry']['location']
-
-    # Request directions via public transit
-    #now = datetime.now()
-    #directions_result = gmaps.directions("Sydney Town Hall","Parramatta, NSW", mode="transit", departure_time=now)
 
     if type_s:
         place_result = gmaps.places_nearby(location=location, type=type_s, radius=5000)

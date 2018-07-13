@@ -13,6 +13,7 @@
                 <span class="text-muted"> План </span>
             </h4>
             <ul class="list-group">
+                {% for number_str, plan_details in plan.items %}
                 <li class="list-group-item">
                     <dl class="row"> 
                         <dt class="col-sm-4">                        
@@ -41,26 +42,30 @@
                     <label for="formGroupExampleInput">Заметка</label>
                     <input type="text" class="form-control" id="formGroupExampleInput" placeholder="">     
                 </li>
+                {% endfor %}
 
-                <li class="list-group-item ">
+                <!-- <li class="list-group-item ">
                     <div>
                         <h6>Какой то текст 2</h6>
                     </div>
-                </li>
+                </li> -->
             </ul>
         </div>    
         <div class="col-md-6 order-md-1">
             <h4 class="mb-3">Куда путь держим?</h4>                                  
                 <div class="row">
                     <div class="col-md-5 mb-3">
-                        <label for="country">Страна</label>
+                       <!-- <label for="country">Страна</label>
                         <select class="custom-select d-block w-100" id="country" required>
                           <option value="">Choose...</option>
                           <option>Russia</option>
                         </select>
                         <div class="invalid-feedback">
                           Выберите страну.
-                        </div>
+                        </div> -->
+                         
+                        {% bootstrap_field form.country %}
+                        
                     </div>
                     <div class="col-md-5 mb-3">
                         <label for="city">Город</label>
@@ -78,8 +83,10 @@
                     <div class="col-md-5 mb-3">
                     <p>
                         <label for="my_date">Дата</label>
-                        <input type="date" id="my_date">  
-                        {{ form.my_date }}
+                        <!-- <input type="date" id="my_date">  -->
+                    </p>
+                    <p>
+                        {{ form.my_date }}                     
                     </p>                    
                     </div>
 
@@ -103,10 +110,9 @@
                               <label class="custom-control-label" for="shop">Магазины</label>
                             </div>
                         </div> -->
-
-                        {% if hotels %}   
-                            {% bootstrap_field form.choice_field %}
-                        {% endif %}
+                      
+                        {% bootstrap_field form.choice_field %}
+                        
                     </div>
                 </div>
                  
@@ -114,42 +120,44 @@
                  {% bootstrap_form form %}
                 {% endif %} -->
 
-                <button class="btn btn-primary btn-lg btn-block" type="submit">Искать</button>    
+                <button class="btn btn-primary btn-lg btn-block" type="submit">Искать</button>  
+                     
+                {% if hotels %}   
+
+                <!-- <table class="table table-sm">
+                <thead>    
+                <th>#</th>    
+                <th>Наименование</th>
+                <th>Адрес</th>
+                </thead>
+
+                {% for number_str, hotel in hotels.items %}
+                    <tbody>
+                    <tr>
+                    <td>
+                        <div class="custom-control custom-checkbox">
+                            <input type="checkbox" class="custom-control-input" id={{number_str}}>
+                            <label class="custom-control-label" for={{number_str}}> {{number_str}} </label>
+                         </div>
+                    </td>    
+                    <td>{{hotel.name}}</td> 
+                    <td>{{hotel.vicinity}}</td> 
+                    </tr>
+                    </tbody>
+                {% endfor %}
+                </table> -->
+
+                {% load django_tables2 %}
+                {% render_table table %}    
+
+                <button class="btn btn-primary btn-lg btn-block" type="submit" name="action" value="done">Внести в план</button>
+                {% endif %}
+                  
         </div>
     </div>
 </form>    
 {% endblock %}
 
 {% block table %}
-  <div class="row">
-    <div class="col-md-6 order-md-1">
-    {% if hotels %}   
-
-    <table class="table table-sm">
-    <thead>    
-    <th>#</th>    
-    <th>Наименование</th>
-    <th>Адрес</th>
-    </thead>
-
-    {% for number_str, hotel in hotels.items %}
-        <tbody>
-        <tr>
-        <td>
-            <div class="custom-control custom-checkbox">
-                <input type="checkbox" class="custom-control-input" id={{number_str}}>
-                <label class="custom-control-label" for={{number_str}}> {{number_str}} </label>
-             </div>
-        </td>    
-        <td>{{hotel.name}}</td> 
-        <td>{{hotel.vicinity}}</td> 
-        </tr>
-        </tbody>
-    {% endfor %}
-    </table>
-
-    <button class="btn btn-primary btn-lg btn-block" type="submit">Внести в план</button>
-    {% endif %}
-    </div>
-  </div>    
+  
 {% endblock %}
