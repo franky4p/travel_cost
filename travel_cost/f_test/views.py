@@ -23,7 +23,7 @@ def index(request):
             ch_field = form.cleaned_data["choice_field"]
             city = form.cleaned_data["city"]
 
-            dict_plan[form.cleaned_data["my_date"]] = {}
+            dict_plan[form.cleaned_data["my_date"]] = {"city": city}
 
             action = request.POST.get('action')
             if action == 'done':

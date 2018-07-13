@@ -16,11 +16,11 @@
                 {% for number_str, plan_details in plan.items %}
                 <li class="list-group-item">
                     <dl class="row"> 
-                        <dt class="col-sm-4">                        
-                            <input type="date" id="date">                      
+                        <dt class="col-sm-5">                        
+                            <input type="text" id="date" value="{{number_str}}">                      
                         </dt>
-                        <dd class="col-sm-8">
-                            <h5>Нижний Урюпинск</h5>
+                        <dd class="col-sm-7">
+                            <h5>{{plan_details.city}}</h5>
                         </dd>           
                     </dl> 
                     <!--<hr class="mb-3"> -->   
@@ -43,12 +43,6 @@
                     <input type="text" class="form-control" id="formGroupExampleInput" placeholder="">     
                 </li>
                 {% endfor %}
-
-                <!-- <li class="list-group-item ">
-                    <div>
-                        <h6>Какой то текст 2</h6>
-                    </div>
-                </li> -->
             </ul>
         </div>    
         <div class="col-md-6 order-md-1">
@@ -68,14 +62,17 @@
                         
                     </div>
                     <div class="col-md-5 mb-3">
-                        <label for="city">Город</label>
+                       <!-- <label for="city">Город</label>
                         <select class="custom-select d-block w-100" id="city" required>
                           <option value="">Choose...</option>
                           <option>Moscow</option>
                         </select>
                         <div class="invalid-feedback">
                           Выберите город.
-                        </div>
+                        </div> -->
+
+                         {% bootstrap_field form.city %}
+
                     </div>                      
                 </div>                   
             <hr class="mb-4">                  
