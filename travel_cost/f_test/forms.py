@@ -9,6 +9,26 @@ CHOICES = (('lodging', 'Отели',), ('museum', 'Музеи',), ('park', 'Па
 COUNTRY_CHOICES = (("Россия", ("Россия")),("США", ("США")),("Канада", ("Канада")),("Япония", ("Япония")),("Сингапур", ("Сингапур")))
 CITY_CHOICES = (("Москва", ("Москва")),("Вашингтон", ("Вашингтон")), ("Токио", ("Токио")))
 
+class FieldsetField(forms.Field):
+    # Поле формы, содержащее другую форму
+    def __init__(self, fieldset, *args, **kwargs):
+        # Html формы передается параметром этого виджета
+        widget = FieldsetWidget(attrs={
+            'form_html': '<table>%s</table>' % fieldset.as_table()
+        })
+        kwargs.update({
+            'widget': widget,
+            'required': False
+        })
+        super(FieldsetField, self).__init__(*args, **kwargs)
+
+
+class InlineForm(forms.Form):
+    # Вложенная форма
+    name = forms.CharField(label='файл')
+    vicinity = forms.CharField(label='название')
+
+
 class NameForm(forms.Form):
     
     choice_field = forms.ChoiceField(widget=forms.RadioSelect, choices=CHOICES, required=False, label="Места")

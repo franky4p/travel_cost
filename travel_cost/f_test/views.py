@@ -1,11 +1,15 @@
 from django.shortcuts import render
 from django.http import HttpResponse
 from datetime import datetime
-from f_test.forms import NameForm, PersonalTable
+from django.forms.formsets import formset_factory
+from f_test.forms import NameForm, PersonalTable, InlineForm, FieldsetField
 
 import app.utils as ut 
 
 dict_plan = {}
+
+# Стандартный formset
+InlineFormSet = formset_factory(InlineForm, extra=2)
 
 def index(request):
 
@@ -16,6 +20,7 @@ def index(request):
                 "form": form,}
     
     if request.method == 'POST':
+        formset = InlineFormSet(request.POST, prefix='formset')
 
         form = NameForm(request.POST)
 
