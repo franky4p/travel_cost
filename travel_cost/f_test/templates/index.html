@@ -31,11 +31,13 @@
                             <th>Адрес</th>
                         </thead>
                         <tbody>
+                            {% for place in plan_details.list_place %}
                             <tr>
                             <td></td>
-                            <td></td>
-                            <td></td>
+                            <td>{{place.name}}</td>
+                            <td>{{place.vicinity}}</td>
                             </tr>
+                            {% endfor %}
                         </tbody>        
                     </table>
 
@@ -88,73 +90,43 @@
                     </div>
 
                     <div class="col-md-4 mb-3">
-                      <!--  <h4 class="mb-3">Места</h4>
-                        <div class="d-block my-3">
-                            <div class="custom-control custom-radio">
-                              <input id="otel" name="rangeMethod" type="radio" class="custom-control-input" checked="" required="">
-                              <label class="custom-control-label" for="otel">Отели</label>
-                            </div>
-                            <div class="custom-control custom-radio">
-                              <input id="musem" name="rangeMethod" type="radio" class="custom-control-input" required="">
-                              <label class="custom-control-label" for="musem">Музеи</label>
-                            </div>
-                            <div class="custom-control custom-radio">
-                              <input id="park" name="rangeMethod" type="radio" class="custom-control-input" required="">
-                              <label class="custom-control-label" for="park">Парки</label>
-                            </div>
-                            <div class="custom-control custom-radio">
-                              <input id="shop" name="rangeMethod" type="radio" class="custom-control-input" required="">
-                              <label class="custom-control-label" for="shop">Магазины</label>
-                            </div>
-                        </div> -->
                       
                         {% bootstrap_field form.choice_field %}
                         
                     </div>
                 </div>
-                 
-               <!-- {% if hotels %}   
-                 {% bootstrap_form form %}
-                {% endif %} -->
 
                 <button class="btn btn-primary btn-lg btn-block" type="submit">Искать</button>  
                      
                 {% if hotels %}   
 
-                <!-- <table class="table table-sm">
+                <table class="table table-sm">
                 <thead>    
                 <th>#</th>    
                 <th>Наименование</th>
                 <th>Адрес</th>
                 </thead>
 
-                {% for number_str, hotel in hotels.items %}
+                {% for number_str, place in hotels.items %}
                     <tbody>
                     <tr>
                     <td>
                         <div class="custom-control custom-checkbox">
-                            <input type="checkbox" class="custom-control-input" id={{number_str}}>
+                            <input type="checkbox" class="custom-control-input" id={{number_str}} name=ch_{{number_str}}>
                             <label class="custom-control-label" for={{number_str}}> {{number_str}} </label>
                          </div>
                     </td>    
-                    <td>{{hotel.name}}</td> 
-                    <td>{{hotel.vicinity}}</td> 
+                    <td>{{place.name}}</td> 
+                    <td>{{place.vicinity}}</td> 
                     </tr>
                     </tbody>
                 {% endfor %}
-                </table> -->
-
-                {% load django_tables2 %}
-                {% render_table table %}    
+                </table>   
 
                 <button class="btn btn-primary btn-lg btn-block" type="submit" name="action" value="done">Внести в план</button>
-                {% endif %}
+                {% endif %} 
                   
         </div>
     </div>
 </form>    
-{% endblock %}
-
-{% block table %}
-  
 {% endblock %}

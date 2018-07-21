@@ -42,7 +42,6 @@ INSTALLED_APPS = [
     'f_test',
     'bootstrap4',
     'django_select2',
-    'django_tables2',
 ]
 
 MIDDLEWARE = [
